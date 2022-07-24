@@ -62,6 +62,13 @@ export class ResourceTaskHandler {
     return this._resourceTask
   }
 
+  public async lazySubmitTask() {
+    const resourceTask = await this.prepareTask()
+    if (resourceTask.taskStatus === ResourceTaskStatus.Pending) {
+      await this.submitTask()
+    }
+  }
+
   public async submitTask() {
     const resourceTask = await this.prepareTask()
     assert.ok(resourceTask.taskStatus !== ResourceTaskStatus.Success, `${resourceTask.taskKey} is already done`)
