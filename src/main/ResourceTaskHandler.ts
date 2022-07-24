@@ -64,9 +64,13 @@ export class ResourceTaskHandler {
 
   public async lazySubmitTask() {
     const resourceTask = await this.prepareTask()
-    if (resourceTask.taskStatus === ResourceTaskStatus.Pending) {
+    if (
+      resourceTask.taskStatus !== ResourceTaskStatus.Success &&
+      resourceTask.taskStatus !== ResourceTaskStatus.Processing
+    ) {
       await this.submitTask()
     }
+    return resourceTask
   }
 
   public async submitTask() {
@@ -74,6 +78,7 @@ export class ResourceTaskHandler {
     assert.ok(resourceTask.taskStatus !== ResourceTaskStatus.Success, `${resourceTask.taskKey} is already done`)
     assert.ok(resourceTask.taskStatus !== ResourceTaskStatus.Processing, `${resourceTask.taskKey} is in processing`)
     await this.taskHandler.private_submitTask(resourceTask.taskKey)
+    return resourceTask
   }
 
   public async executeTask() {
