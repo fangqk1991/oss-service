@@ -81,9 +81,11 @@ export class ResourceTaskHandler {
     return resourceTask
   }
 
-  public async executeTask() {
+  public async executeTask(override = false) {
     const resourceTask = await this.prepareTask()
-    assert.ok(resourceTask.taskStatus !== ResourceTaskStatus.Success, `${resourceTask.taskKey} is already done`)
+    if (resourceTask.taskStatus === ResourceTaskStatus.Success && !override) {
+      return
+    }
     resourceTask.fc_edit()
     resourceTask.taskStatus = ResourceTaskStatus.Processing
     await resourceTask.updateToDB()
