@@ -29,6 +29,7 @@ export interface OssServiceOptions {
   optionsMapper?: { [ossBucket: string]: Options }
   taskMapper?: { [taskType: string]: { new (params?: any): TaskHandlerProtocol } }
   downloadRootDir?: string
+  skipSpecDocItem?: boolean
 }
 
 class _OSSService {

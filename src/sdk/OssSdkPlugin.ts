@@ -4,13 +4,16 @@ import { OSSService, OssServiceOptions } from '../main'
 import { ResourceHandleTask } from '../resque'
 
 export const OssSdkPlugin = (options: OssServiceOptions): AppPluginProtocol => {
-  return {
+  const protocol: AppPluginProtocol = {
     appDidLoad: async () => {
       OSSService.init(options)
     },
-    specDocItem: OssSpecDocItem,
     resqueModuleMap: {
       ResourceHandleTask: ResourceHandleTask,
     },
   }
+  if (!options.skipSpecDocItem) {
+    protocol.specDocItem = OssSpecDocItem
+  }
+  return protocol
 }
