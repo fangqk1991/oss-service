@@ -196,6 +196,16 @@
     tslib "^2.2.0"
     uuid "^3.3.2"
 
+"@fangcha/ali-oss@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@fangcha/ali-oss/-/ali-oss-1.1.0.tgz#4ba276b82802befad5c75f3728d271258e1ad6b1"
+  integrity sha512-c1CYOjmpVNBiBuv4iD8Id44NCMqw3QZvhBSgGsddFUa1I719ZQ8Q41S9N90sMeFaFJowuWtgFl9MXiSeQ/IFMg==
+  dependencies:
+    ali-oss "^6.12.0"
+    md5-file "^5.0.0"
+    shelljs "^0.8.4"
+    tslib "^2.2.0"
+
 "@fangcha/app-error@>=1", "@fangcha/app-error@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@fangcha/app-error/-/app-error-1.1.0.tgz#6055f5b537dc05a384dab45cbf60958f3337a37b"
