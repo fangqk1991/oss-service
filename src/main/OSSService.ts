@@ -93,6 +93,11 @@ class _OSSService {
     return OSSResource
   }
 
+  public async findResource(resourceId: string) {
+    const clazz = this.getClass_OSSResource(this._options.database)
+    return (await clazz.findWithUid(resourceId))!
+  }
+
   public getResourceHandler(resource: _OSSResource) {
     return new OSSResourceHandler(resource, OSSService.getTools(resource.bucketName).ossUtils)
   }
