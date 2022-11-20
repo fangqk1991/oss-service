@@ -3,7 +3,7 @@ import { SpecFactory } from '@fangcha/router'
 import { DownloadApis } from '../common/apis'
 import { _ResourceTask, _UserResourceTask, OSSService, ResourceTaskHandler } from '../main'
 import { ResourceTaskModel } from '../common/models'
-import { FangchaSession } from '@fangcha/backend-kit'
+import { FangchaSession } from '@fangcha/router/lib/session'
 
 const factory = new SpecFactory('导出任务')
 

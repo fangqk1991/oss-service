@@ -13,7 +13,7 @@ export const OssSdkPlugin = (options: OssServiceOptions): AppPluginProtocol => {
     },
   }
   if (!options.skipSpecDocItem) {
-    protocol.specDocItem = OssSpecDocItem
+    protocol.specDocItems = [OssSpecDocItem]
   }
   return protocol
 }
